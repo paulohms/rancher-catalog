@@ -1,23 +1,21 @@
 # Cloud9 (Experimental)
 
-### Info:
+### Informações:
 
- This template deploys a cloud9 sdk.
+ Este template faz a criação de todos os artefatos necessários para o cliente utilizar o jiva-W.
  
- 
-### Usage:
+### Como usar?:
 
- Select cloud9 from catalog. 
-
- Change the following cloud9 default parameters, if you need:
+ Preencha as informações abaixo com as informações do cliente.
 
 - cloud9_user=test			# Basic auth user
-- cloud9_pass=test1234		# Basic auth password
+- cloud9_pass=test1234			# Basic auth password
 - cloud9_port=8080			# Port to listen
 - cloud9_repo="" 			# Optional: Git repo to sync in your environment
-- cloud9_publish=stack		# Publish the service in traefik
-- cloud9_domain=dev.local 	# Publish service domain
+- cloud9_publish=stack			# Publish the service in traefik
+- cloud9_domain=dev.local 		# Publish service domain
 
- Click deploy.
- 
- Cloud9 can now be accessed over the Rancher network.
+ Clique em Iniciar para fazer o deploy de todos os artefatos.
+
+ Um novo container com o nome XXXXX será criado e pode ser visualizado na visualização do host. 
+
