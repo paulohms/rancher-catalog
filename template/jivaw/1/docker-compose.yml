@@ -1,3 +1,3 @@
 web:
-  build: https://raw.githubusercontent.com/paulohms/rancher-catalog/master/template/jivaw/0/Dockerfile
+  build: .
   restart: always
