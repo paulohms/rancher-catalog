@@ -57,13 +57,5 @@
         The location to mount the Confluence home directory on
       type: "string"
       required: true
-confluence:
+web:
   scale: 1
-  health_check:
-    port: 8090
-    interval: 2000
-    initializing_timeout: 60000
-    unhealthy_threshold: 3
-    strategy: recreate
-    healthy_threshold: 2
-    response_timeout: 2000
