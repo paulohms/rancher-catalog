@@ -8,3 +8,4 @@ web:
     - USUARIO_BD_JIVAW=${usuario_bd}
     - SENHA_BD_JIVAW=${senha_bd}
     - PACOTE_JIVAW=3.20b67
+  command: java -jar /opt/DPM/docker-package-manager.jar
