@@ -9,4 +9,5 @@ web:
     - SENHA_BD_JIVAW=${senha_bd}
     - PACOTE_JIVAW=jiva-w_3.20b67.pkg
   command: java -jar /opt/DPM/docker-package-manager.jar
-  volumes: data-volume:/opt/
+  volumes: 
+    - data-volume:/opt/
