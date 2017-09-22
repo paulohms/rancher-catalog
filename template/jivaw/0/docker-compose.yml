@@ -8,6 +8,6 @@ web:
     - USUARIO_BD_JIVAW=${usuario_bd}
     - SENHA_BD_JIVAW=${senha_bd}
     - PACOTE_JIVAW=jiva-w_3.20b67.pkg
-  command: ["/bin/sh","-c", "java -jar /opt/DPM/docker-package-manager.jar && tail -f /opt/jboss_producao/leia_me.txt"]
+  command: ["/bin/sh","-c", "java -jar /opt/DPM/docker-package-manager.jar && /opt/jboss_producao/bin/./jboss_init_redhat.sh start && tail -F /opt/jboss_producao/server/default/log/server.log"]
   volumes: 
     - /home/rancher/data/jboss_producao/:/opt/jboss_producao/
