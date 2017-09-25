@@ -12,7 +12,7 @@ web:
   volumes: 
     - jiva:/opt/jboss_producao/server
 volumes:
-  bar:
+  jiva:
     driver: rancher-nfs
     driver_opts:
       host: 172.16.3.149
