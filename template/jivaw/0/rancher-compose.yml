@@ -52,5 +52,5 @@ load-balancer:
         priority: 1
         protocol: http
         service: web
-        source_port: 5487
+        source_port: ${porta_load_balancer}
         target_port: 8080
