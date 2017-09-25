@@ -37,6 +37,3 @@
       required: true
 web:
   scale: 1
-volumes:
-  jiva:
-    driver: nfs-driver
