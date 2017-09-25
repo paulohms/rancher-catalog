@@ -51,7 +51,7 @@ web:
       reinitializing_timeout: 60000
       unhealthy_threshold: 10
       strategy: recreate
-      healthy_threshold: 2
+      healthy_threshold: 10
       response_timeout: 60000
 load-balancer:
     scale: 1
