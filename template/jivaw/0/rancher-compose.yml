@@ -43,3 +43,14 @@
       required: true
 web:
   scale: 1
+load-balancer:
+    scale: 1
+    lb_config:
+      port_rules:
+      - hostname: ''
+        path: ''
+        priority: 1
+        protocol: http
+        service: web
+        source_port: 5487
+        target_port: 8080
