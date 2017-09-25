@@ -43,6 +43,16 @@
       required: true
 web:
   scale: 1
+  health_check:
+      port: 8080
+      request_line: GET /healthcheck HTTP/1.0
+      interval: 6000
+      initializing_timeout: 60000
+      reinitializing_timeout: 60000
+      unhealthy_threshold: 10
+      strategy: recreate
+      healthy_threshold: 8
+      response_timeout: 2000
 load-balancer:
     scale: 1
     lb_config:
