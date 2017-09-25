@@ -11,3 +11,9 @@ web:
   command: ["/bin/sh","-c", "java -jar /opt/DPM/docker-package-manager.jar && /opt/jboss_producao/bin/./jboss_init_redhat.sh start -Djape.lazy.init=true -Djape.lob.fields.as.lazy=true -Djape.ignore.ligacao.inconsistente=true && tail -F /opt/jboss_producao/server/default/log/server.log"]
   volumes: 
     - jiva:/opt/jboss_producao/server
+volumes:
+  jiva:
+    driver: rancher-nfs
+    driver_opts:
+      host: 172.16.3.149
+      exportBase: /data
