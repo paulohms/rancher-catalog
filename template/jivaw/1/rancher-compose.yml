@@ -3,59 +3,54 @@
   version: "3.19"
   description: "Criar um novo container utilizando o template"
   questions:
-    - variable: "context_path"
-      label: "Context path"
+    - variable: "ip_bd"
+      label: "IP do Banco de Dados"
       description: |
-        The context path under which Confluence will be available
+        IP no qual está instalado o Banco de Dados
       type: "string"
-      default: "/confluence"
       required: true
-    - variable: "proxy_name"
-      label: "Proxy name"
+    - variable: "porta_bd"
+      label: "Porta do Banco de Dados"
       description: |
-        When behind a proxy, specify the name through which clients will connect to Confluence. For example: confluence.mycompany.com
+        Porta no qual está instalado o Banco de Dados
       type: "string"
-      required: false
-    - variable: "proxy_port"
-      label: "Proxy port"
-      description: |
-        When behind a proxy, specify the port through which clients will connect to Confluence
-      type: "int"
-      required: false
-    - variable: "proxy_scheme"
-      label: "Proxy scheme"
-      description: |
-        When behind a proxy, specify the protocol clients will use to connect to Confluence
-      type: "enum"
-      options:
-        - http
-        - https
-      default: http
-      required: false
-    - variable: "heap_size"
-      label: "Heap size"
-      description: |
-        The size of the heap the JVM can allocate
-      type: "string"
-      default: "1024m"
+      default: "1521"
       required: true
-    - variable: "jvm_args"
-      label: "JVM arguments"
+    - variable: "sid_bd"
+      label: "SID do Banco de Dados"
       description: |
-        Additional arguments to pass to the JVM
+        SID do Banco de Dados
       type: "string"
-      required: false
-    - variable: "database_link"
-      label: "Database"
+      default: "ORCL"
+      required: true
+    - variable: "usuario_bd"
+      label: "Usuário do Banco de Dados"
       description: |
-        Service link to the database. This will be mapped to the container as 'database'
-      type: "service"
-      required: false
-    - variable: "confluence_home"
-      label: "Confluence home directory"
+        Usuário do Banco de Dados
+      type: "string"
+      required: true
+    - variable: "senha_bd"
+      label: "Senha do Banco de Dados"
       description: |
-        The location to mount the Confluence home directory on
+        Senha do Banco de Dados
+      type: "string"
+      required: true
+    - variable: "porta_load_balancer"
+      label: "Porta no qual a aplicação será exposta"
+      description: |
+        Porta no qual a aplicação será exposta
       type: "string"
       required: true
 web:
   scale: 1
+load-balancer:
+    scale: 1
+    lb_config:
+      port_rules:
+      - hostname: ''
+        path: ''
+        priority: 1
+        protocol: http
+        service: web
+        source_port: ${porta_load_balancer}
+        target_port: 8080
