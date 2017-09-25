@@ -15,7 +15,7 @@ web:
 load-balancer:
     image: rancher/lb-service-haproxy:v0.7.9
     ports:
-    - ${porta_load_balancer}:${porta_load_balancer}/tcp
+    - ${porta_load_balancer}:8080/tcp
     labels:
       io.rancher.container.agent.role: environmentAdmin
       io.rancher.container.create_agent: 'true'
