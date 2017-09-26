@@ -46,7 +46,7 @@ web:
   health_check:
       port: 8080
       request_line: GET / HTTP/1.0
-      interval: 60000
+      interval: 1800000
       initializing_timeout: 60000
       reinitializing_timeout: 60000
       unhealthy_threshold: 10
