@@ -1,4 +1,4 @@
-# Cloud9 (Experimental)
+# Jiva-W - Gestão Empresarial
 
 ### Informações:
 
@@ -8,14 +8,14 @@
 
  Preencha as informações abaixo com as informações do cliente.
 
-- cloud9_user=test			# Basic auth user
-- cloud9_pass=test1234			# Basic auth password
-- cloud9_port=8080			# Port to listen
-- cloud9_repo="" 			# Optional: Git repo to sync in your environment
-- cloud9_publish=stack			# Publish the service in traefik
-- cloud9_domain=dev.local 		# Publish service domain
+- *Versão do Template* - Versão do Jiva-W a ser instalado
+- IP do Banco de Dados
+- Porta do Banco de Dados
+- SID do Banco de Dados
+- Usuário do Banco de Dados
+- Senha do Banco de Dados
+- Porta no qual a aplicação será exposta
 
  Clique em Iniciar para fazer o deploy de todos os artefatos.
 
- Um novo container com o nome XXXXX será criado e pode ser visualizado na visualização do host. 
-
+ O tempo médio para o serviço estar ativo é de 3 minutos. 
