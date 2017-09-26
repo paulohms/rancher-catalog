@@ -33,7 +33,7 @@
       label: "Senha do Banco de Dados"
       description: |
         Senha do Banco de Dados
-      type: "string"
+      type: "password"
       required: true
     - variable: "porta_load_balancer"
       label: "Porta no qual a aplicação será exposta"
