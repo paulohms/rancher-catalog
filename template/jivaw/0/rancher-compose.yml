@@ -49,7 +49,7 @@ web:
       interval: 2400000
       initializing_timeout: 60000
       reinitializing_timeout: 60000
-      unhealthy_threshold: 3
+      unhealthy_threshold: 10
       strategy: recreateOnQuorum
       recreate_on_quorum_strategy_config:
         quorum: 1
