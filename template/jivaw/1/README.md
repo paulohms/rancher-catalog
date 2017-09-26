@@ -2,7 +2,7 @@
 
 ### Informações:
 
- Este template faz a criação de todos os artefatos necessários para o cliente utilizar o jiva-W.
+ Este template faz a criação de todos os artefatos necessários para o cliente utilizar o **Jiva-W**.
  
 ### Como usar?:
 
@@ -16,6 +16,6 @@
 - Senha do Banco de Dados
 - Porta no qual a aplicação será exposta
 
- Clique em Iniciar para fazer o deploy de todos os artefatos.
+ Clique em **Iniciar** para fazer o deploy de todos os artefatos.
 
- O tempo médio para o serviço estar ativo é de 5 minutos. 
+ O tempo médio para o serviço estar ativo é de **5 minutos**. 
