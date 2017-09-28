@@ -22,8 +22,6 @@ sas:
     - USUARIO_BD_JIVAW=${usuario_bd}
     - SENHA_BD_JIVAW=${senha_bd}
   command: ["/bin/sh","-c", "/opt/SAS*/bin/./run-sas.sh && sleep 3s && tail -f /opt/SAS*/log/server*.log"]
-  ports:
-    - 10050:10050/tcp
 
 load-balancer:
     image: rancher/lb-service-haproxy:v0.7.9
