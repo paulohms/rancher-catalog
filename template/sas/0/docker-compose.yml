@@ -7,4 +7,4 @@ sas:
     - SID_BD_JIVAW=${sid_bd}
     - USUARIO_BD_JIVAW=${usuario_bd}
     - SENHA_BD_JIVAW=${senha_bd}
-  command: ["/opt/SAS2.0b36/bin/./run-sas.sh && tail -f /opt/SAS*/log/server*.log"]
+  command: ["/bin/sh","-c", "/opt/SAS2.0b36/bin/./run-sas.sh && tail -f /opt/SAS*/log/server*.log"]
