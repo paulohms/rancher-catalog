@@ -1,4 +1,4 @@
-web:
+jiva-w:
   image: paulohms/jivaw:3.19.12
   restart: always
   environment:
@@ -11,6 +11,17 @@ web:
   command: ["/bin/sh","-c", "java -jar /opt/DPM/docker-package-manager.jar && /opt/jboss_producao/bin/./jboss_init_redhat.sh start -Djape.lazy.init=true -Djape.lob.fields.as.lazy=true -Djape.ignore.ligacao.inconsistente=true && tail -F /opt/jboss_producao/server/default/log/server.log"]
 #  volumes: 
 #    - /opt/dados/{{ .Stack.Name }}:/opt/jboss_producao/server
+
+sas:
+  image: paulohms/sas:1.0
+  restart: always
+  environment:
+    - IP_BD_JIVAW=${ip_bd}
+    - PORTA_BD_JIVAW=${porta_bd}
+    - SID_BD_JIVAW=${sid_bd}
+    - USUARIO_BD_JIVAW=${usuario_bd}
+    - SENHA_BD_JIVAW=${senha_bd}
+  command: ["/bin/sh","-c", "/opt/SAS*/bin/./run-sas.sh && sleep 3s && tail -f /opt/SAS*/log/server*.log"]
 
 load-balancer:
     image: rancher/lb-service-haproxy:v0.7.9

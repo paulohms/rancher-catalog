@@ -41,7 +41,7 @@
         Porta no qual a aplicação será exposta
       type: "string"
       required: true
-web:
+jiva-w:
   scale: 1
   health_check:
       port: 8080
@@ -53,6 +53,8 @@ web:
       strategy: recreate
       healthy_threshold: 1
       response_timeout: 60000
+sas:
+  scale: 1
 load-balancer:
     scale: 1
     lb_config:
@@ -61,6 +63,6 @@ load-balancer:
         path: ''
         priority: 1
         protocol: http
-        service: web
+        service: jiva-w
         source_port: ${porta_load_balancer}
         target_port: 8080
