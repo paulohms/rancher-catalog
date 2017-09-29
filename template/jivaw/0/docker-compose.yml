@@ -1,4 +1,4 @@
-web:
+jiva-w:
   image: paulohms/jivaw:3.19.12
   restart: always
   environment:
