@@ -9,6 +9,8 @@ jiva-w:
     - SENHA_BD_JIVAW=${senha_bd}
     - PACOTE_JIVAW=jiva-w_3.20b67.pkg
   command: ["/bin/sh","-c", "java -jar /opt/DPM/docker-package-manager.jar && /opt/jboss_producao/bin/./jboss_init_redhat.sh start -Djape.lazy.init=true -Djape.lob.fields.as.lazy=true -Djape.ignore.ligacao.inconsistente=true && sleep 3s && tail -F /opt/jboss_producao/server/default/log/server.log"]
+  links:
+    - sas
 #  volumes: 
 #    - /opt/dados/{{ .Stack.Name }}:/opt/jboss_producao/server
 
