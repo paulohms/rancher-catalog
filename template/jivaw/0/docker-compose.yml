@@ -8,7 +8,7 @@ jiva-w:
     - USUARIO_BD_JIVAW=${usuario_bd}
     - SENHA_BD_JIVAW=${senha_bd}
     - PACOTE_JIVAW=jiva-w_3.19.14b36.pkg
-  command: ["/bin/sh","-c", "java -jar /opt/DPM/docker-package-manager.jar && /opt/jboss_producao/bin/./jboss_init_redhat.sh start -Djape.lazy.init=true -Djape.lob.fields.as.lazy=true -Djape.ignore.ligacao.inconsistente=true && tail -F /opt/jboss_producao/server/default/log/server.log"]
+  command: ["/bin/sh","-c", "java -jar /opt/DPM/docker-package-manager.jar && /opt/jboss_producao/bin/./jboss_init_redhat.sh start -Djape.lazy.init=true -Djape.lob.fields.as.lazy=true -Djape.ignore.ligacao.inconsistente=true && sleep 5s && tail -F /opt/jboss_producao/server/default/log/server.log"]
   links:
     - sas
 #  volumes: 
