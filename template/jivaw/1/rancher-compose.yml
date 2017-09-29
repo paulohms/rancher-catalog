@@ -1,6 +1,6 @@
 .catalog:
   name: "Jiva-W"
-  version: "3.19"
+  version: "3.20"
   description: "Criar um novo container utilizando o template"
   questions:
     - variable: "ip_bd"
@@ -33,7 +33,7 @@
       label: "Senha do Banco de Dados"
       description: |
         Senha do Banco de Dados
-      type: "string"
+      type: "password"
       required: true
     - variable: "porta_load_balancer"
       label: "Porta no qual a aplicação será exposta"
@@ -41,8 +41,29 @@
         Porta no qual a aplicação será exposta
       type: "string"
       required: true
-web:
+jiva-w:
   scale: 1
+  health_check:
+      port: 8080
+      request_line: GET / HTTP/1.0
+      interval: 60000
+      initializing_timeout: 300000
+      reinitializing_timeout: 300000
+      unhealthy_threshold: 2
+      strategy: recreate
+      healthy_threshold: 1
+      response_timeout: 60000
+sas:
+  scale: 1
+  health_check:
+      response_timeout: 60000
+      healthy_threshold: 1
+      port: 10050
+      unhealthy_threshold: 2
+      initializing_timeout: 60000
+      interval: 60000
+      strategy: recreate
+      reinitializing_timeout: 60000
 load-balancer:
     scale: 1
     lb_config:
@@ -51,6 +72,6 @@ load-balancer:
         path: ''
         priority: 1
         protocol: http
-        service: web
+        service: jiva-w
         source_port: ${porta_load_balancer}
         target_port: 8080
