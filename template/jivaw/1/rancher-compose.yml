@@ -42,7 +42,7 @@
       type: "string"
       required: true
 jiva-w:
-  scale: 1
+  scale: 2
   health_check:
       port: 8080
       request_line: GET / HTTP/1.0
