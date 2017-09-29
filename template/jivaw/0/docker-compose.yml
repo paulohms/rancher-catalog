@@ -23,6 +23,8 @@ sas:
     - SENHA_BD_JIVAW=${senha_bd}
     - IP_CONTAINER=${agent_ip}
   command: ["/bin/sh","-c", "java -jar /opt/DSM/docker-sas-manager.jar && /opt/SAS*/bin/./run-sas.sh && sleep 3s && tail -f /opt/SAS*/log/server*.log"]
+  links:
+    - jivaw
 
 load-balancer:
     image: rancher/lb-service-haproxy:v0.7.9

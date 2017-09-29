@@ -55,7 +55,6 @@ jiva-w:
       response_timeout: 60000
 sas:
   scale: 1
-  service: jiva-w
   health_check:
       response_timeout: 60000
       healthy_threshold: 1
