@@ -55,6 +55,15 @@ jiva-w:
       response_timeout: 60000
 sas:
   scale: 1
+  health_check:
+      response_timeout: 60000
+      healthy_threshold: 1
+      port: 10050
+      unhealthy_threshold: 2
+      initializing_timeout: 60000
+      interval: 60000
+      strategy: recreate
+      reinitializing_timeout: 60000
 load-balancer:
     scale: 1
     lb_config:
