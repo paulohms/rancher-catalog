@@ -1,5 +1,5 @@
 jiva-w:
-  image: paulohms/jivaw:3.19.12
+  image: paulohms/jivaw:3.19.13
   restart: always
   environment:
     - IP_BD_JIVAW=${ip_bd}
@@ -11,12 +11,12 @@ jiva-w:
   command: ["/bin/sh","-c", "java -jar /opt/DPM/docker-package-manager.jar && sleep 2 && /opt/jboss_producao/bin/./jboss_init_redhat.sh start -Djape.lazy.init=true -Djape.lob.fields.as.lazy=true -Djape.ignore.ligacao.inconsistente=true && sleep 2 && tail -F /opt/jboss_producao/server/default/log/server.log"]
   links:
     - sas
-  volumes: 
-    - /opt/dados/{{ .Stack.Name }}/impressao/:/home/mgeweb/impressao # Modelos de Impressão
-    - /opt/dados/{{ .Stack.Name }}/repositorio/:/home/mgeweb/repositorio # Repositório de arquivos
-    - /opt/dados/{{ .Stack.Name }}/logs/:/opt/jboss_producao/server/default/log # logs do JBOSS
-    - /opt/dados/{{ .Stack.Name }}/certificados/:/opt/SanNFe/certificados # Certificados do SanNFe
-   # - /opt/dados/pkgs/:/home/mgeweb/sankhyaw-wpm/pkgs # Pkgs Jiva-W
+#  volumes: 
+#    - /opt/dados/{{ .Stack.Name }}/impressao/:/home/mgeweb/impressao # Modelos de Impressão
+#    - /opt/dados/{{ .Stack.Name }}/repositorio/:/home/mgeweb/repositorio # Repositório de arquivos
+#    - /opt/dados/{{ .Stack.Name }}/logs/:/opt/jboss_producao/server/default/log # logs do JBOSS
+#    - /opt/dados/{{ .Stack.Name }}/certificados/:/opt/SanNFe # Certificados do SanNFe
+#   # - /opt/dados/pkgs/:/home/mgeweb/sankhyaw-wpm/pkgs # Pkgs Jiva-W
 
 sas:
   image: paulohms/sas:1.0
