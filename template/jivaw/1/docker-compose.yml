@@ -16,7 +16,7 @@ jiva-w:
     - /home/mgeweb/{{ .Stack.Name }}/repositorio/:/home/mgeweb/repositorio # Repositório de arquivos
     - /home/mgeweb/{{ .Stack.Name }}/logs/:/home/mgeweb/logs # logs do JBOSS
     - /home/mgeweb/{{ .Stack.Name }}/certificados/:/opt/SanNFe # Certificados do SanNFe
-    - /home/mgeweb/sankhyaw-wpm/pkgs/:/home/mgeweb/sankhyaw-wpm/pkgs # Pkgs Jiva-W
+    #- /home/mgeweb/sankhyaw-wpm/pkgs/:/home/mgeweb/sankhyaw-wpm/pkgs # Pkgs Jiva-W
 
 sas:
   image: paulohms/sas:1.0
