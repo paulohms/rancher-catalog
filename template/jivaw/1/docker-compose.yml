@@ -10,7 +10,6 @@ jiva-w:
     - PACOTE_JIVAW=jiva-w_3.20b67.pkg
   links:
     - sas
-  user: mgeweb:mgeweb
   volumes: 
     - /home/mgeweb/{{ .Stack.Name }}/impressao/:/home/mgeweb/impressao # Modelos de Impressão
     - /home/mgeweb/{{ .Stack.Name }}/repositorio/:/home/mgeweb/repositorio # Repositório de arquivos
