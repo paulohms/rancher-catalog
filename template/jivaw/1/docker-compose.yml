@@ -16,7 +16,7 @@ jiva-w:
     - /home/mgeweb/{{ .Stack.Name }}/logs/:/home/mgeweb/logs # logs do JBOSS
     - /home/mgeweb/{{ .Stack.Name }}/certificados/:/opt/SanNFe # Certificados do SanNFe
     #- /home/mgeweb/sankhyaw-wpm/pkgs/:/home/mgeweb/sankhyaw-wpm/pkgs # Pkgs Jiva-W
-  command: ["/bin/sh","-c", "sudo chown mgeweb:mgeweb /home/mgeweb/impressao && java -jar /opt/DPM/docker-package-manager.jar && sleep 2 && /opt/jboss_producao/bin/./jboss_init_redhat.sh start -Djape.lazy.init=true -Djape.lob.fields.as.lazy=true -Djape.ignore.ligacao.inconsistente=true && sleep 2 && tail -F /opt/jboss_producao/server/default/log/server.log"]
+  command: ["/bin/sh","-c", "sudo chown -R mgeweb:mgeweb /home/mgeweb/ && java -jar /opt/DPM/docker-package-manager.jar && sleep 2 && /opt/jboss_producao/bin/./jboss_init_redhat.sh start -Djape.lazy.init=true -Djape.lob.fields.as.lazy=true -Djape.ignore.ligacao.inconsistente=true && sleep 2 && tail -F /opt/jboss_producao/server/default/log/server.log"]
 
 sas:
   image: paulohms/sas:1.0
