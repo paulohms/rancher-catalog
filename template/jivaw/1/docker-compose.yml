@@ -17,7 +17,7 @@ jiva-w:
   #  - /home/mgeweb/{{ .Stack.Name }}/logs/:/home/mgeweb/logs # logs do JBOSS
     - /home/mgeweb/{{ .Stack.Name }}/certificados/:/opt/SanNFe # Certificados do SanNFe
   #  - /home/mgeweb/sankhyaw-wpm/pkgs/:/home/mgeweb/sankhyaw-wpm/pkgs # Pkgs Jiva-W
-  command: ["/bin/sh","-c", "chown -R mgeweb:mgeweb /home/mgeweb/"]
+  command: ["/bin/sh","-c", "sudo chown -R mgeweb:mgeweb /home/mgeweb/"]
 
 sas:
   image: paulohms/sas:1.0
