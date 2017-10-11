@@ -16,7 +16,7 @@ jiva-w:
     - /home/mgeweb/dados-dos-clientes/{{ .Stack.Name }}/logs/:/opt/jboss_producao/server/default/log # logs do JBOSS
     - /home/mgeweb/dados-dos-clientes/{{ .Stack.Name }}/certificados/:/opt/SanNFe # Certificados do SanNFe
     #- /home/mgeweb/sankhyaw-wpm/pkgs/:/home/mgeweb/sankhyaw-wpm/pkgs # Pkgs Jiva-W
-  command: ["/bin/sh","-c", "sudo chown -R mgeweb:mgeweb /home/mgeweb/ && sudo chown -R mgeweb:mgeweb /opt/ && java -jar /opt/DPM/docker-package-manager.jar && sleep 2 && /opt/jboss_producao/bin/./jboss_init_redhat.sh start -Djape.lazy.init=true -Djape.lob.fields.as.lazy=true -Djape.ignore.ligacao.inconsistente=true && sleep 2 && tail -F /opt/jboss_producao/server/default/log/server.log"]
+  command: ["/bin/sh","-c", "/opt/./sannfe.sh && sudo chown -R mgeweb:mgeweb /home/mgeweb/ && sudo chown -R mgeweb:mgeweb /opt/ && java -jar /opt/DPM/docker-package-manager.jar && sleep 2 && /opt/jboss_producao/bin/./jboss_init_redhat.sh start -Djape.lazy.init=true -Djape.lob.fields.as.lazy=true -Djape.ignore.ligacao.inconsistente=true && sleep 2 && tail -F /opt/jboss_producao/server/default/log/server.log"]
 
 sas:
   image: paulohms/sas:1.0
