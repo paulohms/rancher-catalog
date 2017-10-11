@@ -46,9 +46,9 @@ jiva-w:
   health_check:
       port: 8080
       request_line: GET / HTTP/1.0
-      interval: 60000
-      initializing_timeout: 300000
-      reinitializing_timeout: 300000
+      interval: 600000
+      initializing_timeout: 600000
+      reinitializing_timeout: 600000
       unhealthy_threshold: 2
       strategy: recreate
       healthy_threshold: 1
