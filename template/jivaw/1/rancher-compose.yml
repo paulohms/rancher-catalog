@@ -41,6 +41,15 @@
         Porta no qual a aplicação será exposta
       type: "string"
       required: true
+    - variable: "memoria_jboss"
+      label: "Memória de inicialização do Jboss"
+      description: |
+        Memória de inicialização do Jboss
+      type: enum
+      options:
+        - Xms512m
+        - Xms1024m
+      required: true
 jiva-w:
   scale: 1
   health_check:
