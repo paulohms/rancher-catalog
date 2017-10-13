@@ -1,0 +1,39 @@
+jiva-w:
+  image: paulohms/jivaw:3.19.14
+  restart: always
+  environment:
+    - IP_BD_JIVAW=${ip_bd}
+    - PORTA_BD_JIVAW=${porta_bd}
+    - SID_BD_JIVAW=${sid_bd}
+    - USUARIO_BD_JIVAW=${usuario_bd}
+    - SENHA_BD_JIVAW=${senha_bd}
+    - PACOTE_JIVAW=jiva-w_1054613-trunkb121178.pkg
+  links:
+    - sas
+  volumes: 
+    - /home/mgeweb/dados-dos-clientes/{{ .Stack.Name }}/impressao/:/home/mgeweb/impressao # Modelos de Impressão
+    - /home/mgeweb/dados-dos-clientes/{{ .Stack.Name }}/repositorio/:/home/mgeweb/repositorio # Repositório de arquivos
+    - /home/mgeweb/dados-dos-clientes/{{ .Stack.Name }}/logs/:/opt/jboss_producao/server/default/log # logs do JBOSS
+    - /home/mgeweb/dados-dos-clientes/{{ .Stack.Name }}/SanNFe/:/opt/SanNFe # Certificados do SanNFe
+    #- /home/mgeweb/sankhyaw-wpm/pkgs/:/home/mgeweb/sankhyaw-wpm/pkgs # Pkgs Jiva-W
+  command: ["/bin/sh","-c", "sed -i 's/-Xms1024m -Xmx1024m/-${memoria_jboss} -${memoria_jboss}/g' /opt/jboss_producao/bin/run.conf && sudo /opt/./sannfe.sh && sudo chown -R mgeweb:mgeweb /home/mgeweb/ && sudo chown -R mgeweb:mgeweb /opt/ && java -jar /opt/DPM/docker-package-manager.jar && sleep 2 && /opt/jboss_producao/bin/./jboss_init_redhat.sh start -Djape.lazy.init=true -Djape.lob.fields.as.lazy=true -Djape.ignore.ligacao.inconsistente=true && sleep 2 && tail -F /opt/jboss_producao/server/default/log/server.log"]
+
+sas:
+  image: paulohms/sas:1.0
+  restart: always
+  environment:
+    - IP_BD_JIVAW=${ip_bd}
+    - PORTA_BD_JIVAW=${porta_bd}
+    - SID_BD_JIVAW=${sid_bd}
+    - USUARIO_BD_JIVAW=${usuario_bd}
+    - SENHA_BD_JIVAW=${senha_bd}
+    - IP_CONTAINER=${agent_ip}
+  command: ["/bin/sh","-c", "java -jar /opt/DSM/docker-sas-manager.jar && sleep 2 & /opt/SAS*/bin/./run-sas.sh && sleep 2 && tail -f /opt/SAS*/log/server*.log"]
+
+load-balancer:
+    image: rancher/lb-service-haproxy:v0.7.9
+    ports:
+    - ${porta_load_balancer}:${porta_load_balancer}/tcp
+    labels:
+      io.rancher.container.agent.role: environmentAdmin
+      io.rancher.container.create_agent: 'true'
