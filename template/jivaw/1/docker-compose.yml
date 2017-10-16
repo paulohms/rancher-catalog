@@ -10,7 +10,7 @@ jiva-w:
     - PACOTE_JIVAW=jiva-w_3.20b67.pkg
   links:
     - sas
-  volumes: 
+  #volumes: 
     #- /home/mgeweb/dados-dos-clientes/{{ .Stack.Name }}/impressao/:/home/mgeweb/impressao # Modelos de Impressão
     #- /home/mgeweb/dados-dos-clientes/{{ .Stack.Name }}/repositorio/:/home/mgeweb/repositorio # Repositório de arquivos
     #- /home/mgeweb/dados-dos-clientes/{{ .Stack.Name }}/logs/:/opt/jboss_producao/server/default/log # logs do JBOSS
