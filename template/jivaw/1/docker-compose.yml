@@ -17,7 +17,7 @@ jiva-w:
     - /home/mgeweb/dados-dos-clientes/{{ .Stack.Name }}/SanNFe/:/opt/SanNFe # Certificados do SanNFe
    #- /home/mgeweb/sankhyaw-wpm/pkgs/:/home/mgeweb/sankhyaw-wpm/pkgs # Pkgs Jiva-W
   command: ["/bin/sh","-c", "sed -i 's/-Xms1024m -Xmx1024m/${memoria_jboss}/g' /opt/jboss_producao/bin/run.conf && sudo chown -R mgeweb:mgeweb /home/mgeweb/ && sudo /opt/./sannfe.sh && sudo chown -R mgeweb:mgeweb /opt/ && java -jar /opt/DPM/docker-package-manager.jar && sleep 2 && /opt/jboss_producao/bin/./jboss_init_redhat.sh start -Djape.lazy.init=true -Djape.lob.fields.as.lazy=true -Djape.ignore.ligacao.inconsistente=true && sleep 2 && tail -F /opt/jboss_producao/server/default/log/server.log"]
-  mem_limit: '1024m' 
+  #mem_limit: '1536m' 
 
 sas:
   image: paulohms/sas:1.0
