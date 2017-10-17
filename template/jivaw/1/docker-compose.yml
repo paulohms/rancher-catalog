@@ -1,6 +1,6 @@
 jiva-w:
   image: paulohms/jivaw:3.19.13
-  restart: always
+  #restart: always
   environment:
     - IP_BD_JIVAW=${ip_bd}
     - PORTA_BD_JIVAW=${porta_bd}
@@ -8,8 +8,8 @@ jiva-w:
     - USUARIO_BD_JIVAW=${usuario_bd}
     - SENHA_BD_JIVAW=${senha_bd}
     - PACOTE_JIVAW=jiva-w_3.20b67.pkg
-  links:
-    - sas
+  #links:
+  #  - sas
   #volumes: 
   #  - /home/mgeweb/dados-dos-clientes/{{ .Stack.Name }}/impressao/:/home/mgeweb/impressao # Modelos de Impressão
   #  - /home/mgeweb/dados-dos-clientes/{{ .Stack.Name }}/repositorio/:/home/mgeweb/repositorio # Repositório de arquivos
