@@ -52,16 +52,16 @@
       required: true
 jiva-w:
   scale: 1
-  health_check:
-      port: 8080
-      request_line: GET / HTTP/1.0
-      interval: 200000
-      initializing_timeout: 300000
-      reinitializing_timeout: 300000
-      unhealthy_threshold: 3
-      strategy: recreate
-      healthy_threshold: 1
-      response_timeout: 60000
+  #health_check:
+  #    port: 8080
+  #    request_line: GET / HTTP/1.0
+  #    interval: 200000
+  #    initializing_timeout: 300000
+  #    reinitializing_timeout: 300000
+  #    unhealthy_threshold: 3
+  #    strategy: recreate
+  #    healthy_threshold: 1
+  #    response_timeout: 60000
 sas:
   scale: 1
   health_check:
