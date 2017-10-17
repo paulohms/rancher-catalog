@@ -47,8 +47,8 @@
         Memória de inicialização do Jboss
       type: enum
       options:
-        - Xms512m
-        - Xms1024m
+        - -Xms512m -Xmx512m
+        - -Xms1024m -Xmx1024m
       required: true
 jiva-w:
   scale: 1
