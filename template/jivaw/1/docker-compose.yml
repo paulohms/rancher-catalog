@@ -10,15 +10,14 @@ jiva-w:
     - PACOTE_JIVAW=jiva-w_3.20b67.pkg
   links:
     - sas
-  #volumes: 
-  #  - /home/mgeweb/dados-dos-clientes/{{ .Stack.Name }}/impressao/:/home/mgeweb/impressao # Modelos de Impressão
-  #  - /home/mgeweb/dados-dos-clientes/{{ .Stack.Name }}/repositorio/:/home/mgeweb/repositorio # Repositório de arquivos
-  #  - /home/mgeweb/dados-dos-clientes/{{ .Stack.Name }}/logs/:/opt/jboss_producao/server/default/log # logs do JBOSS
-  #  - /home/mgeweb/dados-dos-clientes/{{ .Stack.Name }}/SanNFe/:/opt/SanNFe # Certificados do SanNFe
-    #- /home/mgeweb/sankhyaw-wpm/pkgs/:/home/mgeweb/sankhyaw-wpm/pkgs # Pkgs Jiva-W
-  #command: ["/bin/sh","-c", "sed -i 's/-Xms1024m -Xmx1024m/${memoria_jboss}/g' /opt/jboss_producao/bin/run.conf && sudo chown -R mgeweb:mgeweb /home/mgeweb/ && sudo /opt/./sannfe.sh && sudo chown -R mgeweb:mgeweb /opt/ && java -jar /opt/DPM/docker-package-manager.jar && sleep 2 && /opt/jboss_producao/bin/./jboss_init_redhat.sh start -Djape.lazy.init=true -Djape.lob.fields.as.lazy=true -Djape.ignore.ligacao.inconsistente=true && sleep 2 && tail -F /opt/jboss_producao/server/default/log/server.log"]
-  command: ["/bin/sh","-c", "sed -i 's/-Xms1024m -Xmx1024m/${memoria_jboss}/g' /opt/jboss_producao/bin/run.conf && java -jar /opt/DPM/docker-package-manager.jar && sleep 2 && /opt/jboss_producao/bin/./jboss_init_redhat.sh start -Djape.lazy.init=true -Djape.lob.fields.as.lazy=true -Djape.ignore.ligacao.inconsistente=true && sleep 2 && tail -F /opt/jboss_producao/server/default/log/server.log"]
-  mem_limit: '1536m' 
+  volumes: 
+    - /home/mgeweb/dados-dos-clientes/{{ .Stack.Name }}/impressao/:/home/mgeweb/impressao # Modelos de Impressão
+    - /home/mgeweb/dados-dos-clientes/{{ .Stack.Name }}/repositorio/:/home/mgeweb/repositorio # Repositório de arquivos
+    - /home/mgeweb/dados-dos-clientes/{{ .Stack.Name }}/logs/:/opt/jboss_producao/server/default/log # logs do JBOSS
+    - /home/mgeweb/dados-dos-clientes/{{ .Stack.Name }}/SanNFe/:/opt/SanNFe # Certificados do SanNFe
+   #- /home/mgeweb/sankhyaw-wpm/pkgs/:/home/mgeweb/sankhyaw-wpm/pkgs # Pkgs Jiva-W
+  command: ["/bin/sh","-c", "sed -i 's/-Xms1024m -Xmx1024m/${memoria_jboss}/g' /opt/jboss_producao/bin/run.conf && sudo chown -R mgeweb:mgeweb /home/mgeweb/ && sudo /opt/./sannfe.sh && sudo chown -R mgeweb:mgeweb /opt/ && java -jar /opt/DPM/docker-package-manager.jar && sleep 2 && /opt/jboss_producao/bin/./jboss_init_redhat.sh start -Djape.lazy.init=true -Djape.lob.fields.as.lazy=true -Djape.ignore.ligacao.inconsistente=true && sleep 2 && tail -F /opt/jboss_producao/server/default/log/server.log"]
+  #mem_limit: '1536m' 
 
 sas:
   image: paulohms/sas:1.0
