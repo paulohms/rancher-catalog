@@ -82,10 +82,5 @@ load-balancer:
         priority: 1
         protocol: http
         service: jiva-w
-        ports: 
-          - 8080
-        portRules:
-          - sourcePort: 6791
-            targetPort: 8080
-#        target_port: 8080
-#        source_port: ${porta_load_balancer}
+        target_port: 8080
+        #source_port: ${porta_load_balancer}
