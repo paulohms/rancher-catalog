@@ -1,5 +1,5 @@
 jiva-w:
-  image: paulohms/jivaw:3.19.14
+  image: paulohms/jivaw:3.19.15
   restart: always
   environment:
     - IP_BD_JIVAW=${ip_bd}
@@ -8,6 +8,7 @@ jiva-w:
     - USUARIO_BD_JIVAW=${usuario_bd}
     - SENHA_BD_JIVAW=${senha_bd}
     - PACOTE_JIVAW=jiva-w_3.20b159.pkg
+    - TIPO_SERVIDOR=WILDFLY
   links:
     - sas
   volumes: 
