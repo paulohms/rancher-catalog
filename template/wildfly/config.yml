@@ -1,5 +1,5 @@
 name: Jiva-W
 description: |
-  Container jiva-w com o servidor de aplicação JBOSS
+  Container jiva-w com o servidor de aplicação WILDFLY
 version: 3.19
 category: Collaboration
