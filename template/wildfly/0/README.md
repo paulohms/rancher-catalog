@@ -18,4 +18,4 @@
 
  Clique em **Iniciar** para fazer o deploy de todos os artefatos.
 
- O tempo médio para o serviço estar ativo é de **5 minutos**. 
+ O tempo médio para o serviço estar ativo é de **10 minutos**. 
