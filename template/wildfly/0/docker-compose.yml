@@ -34,10 +34,11 @@ sas:
     - IP_CONTAINER=${agent_ip}
   command: ["/bin/sh","-c", "java -jar /opt/DSM/docker-sas-manager.jar && sleep 2 & /opt/SAS*/bin/./run-sas.sh && sleep 2 && tail -f /opt/SAS*/log/server*.log"]
 
-load-balancer:
-    image: rancher/lb-service-haproxy:v0.7.9
-    ports:
-      - 8080
-    labels:
-      io.rancher.container.agent.role: environmentAdmin
-      io.rancher.container.create_agent: 'true'
+#load-balancer:
+#    image: rancher/lb-service-haproxy:v0.7.9
+#    ports:
+#      - 8080
+#    labels:
+#      io.rancher.container.agent.role: environmentAdmin
+#      io.rancher.container.create_agent: 'true'
+#

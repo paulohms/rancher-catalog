@@ -73,14 +73,14 @@ sas:
       interval: 60000
       strategy: recreate
       reinitializing_timeout: 60000
-load-balancer:
-    scale: 1
-    lb_config:
-      port_rules:
-      - hostname: ''
-        path: ''
-        priority: 1
-        protocol: http
-        service: jiva-w
-        target_port: 8080
-        #source_port: 8080 #${porta_load_balancer}
+#load-balancer:
+#    scale: 1
+#    lb_config:
+#      port_rules:
+#      - hostname: ''
+#        path: ''
+#        priority: 1
+#        protocol: http
+#        service: jiva-w
+#        target_port: 8080
+#        #source_port: 8080 #${porta_load_balancer}
