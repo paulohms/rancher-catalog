@@ -1,5 +1,5 @@
 jiva-w:
-  image: paulohms/jivaw:3.19.15
+  image: paulohms/jivaw:1.0
   restart: always
   environment:
     - IP_BD_JIVAW=${ip_bd}
