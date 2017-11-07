@@ -35,12 +35,6 @@
         Senha do Banco de Dados
       type: "password"
       required: true
-    - variable: "porta_load_balancer"
-      label: "Porta no qual a aplicação será exposta"
-      description: |
-        Porta no qual a aplicação será exposta
-      type: "string"
-      required: true
     - variable: "memoria_jboss"
       label: "Memória de inicialização do Jboss"
       description: |
