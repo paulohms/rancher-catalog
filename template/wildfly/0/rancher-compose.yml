@@ -44,6 +44,15 @@
         - -Xms512m -Xmx512m
         - -Xms1024m -Xmx1024m
       required: true
+    - variable: "tipo_bd"
+      label: "Tipo do BD"
+      description: |
+        Tipo do Banco de Dados (ORACLE | SQLSERVER)
+      type: enum
+      options:
+        - Oracle
+        - SqlServer
+      required: true
 jiva-w:
   scale: 1
   #health_check:
