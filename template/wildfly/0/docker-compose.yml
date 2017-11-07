@@ -9,6 +9,7 @@ jiva-w:
     - SENHA_BD_JIVAW=${senha_bd}
     - PACOTE_JIVAW=jiva-w_3.20b123.pkg
     - TIPO_SERVIDOR=WILDFLY
+    - TIPO_BD=${tipo_bd}
   links:
     - sas
   volumes: 
