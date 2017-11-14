@@ -1,6 +1,6 @@
 .catalog:
   name: "Jiva-W"
-  version: "_3.20b182"
+  version: "3.20b182
   description: "Criar um novo container utilizando o template"
   questions:
     - variable: "ip_bd"
@@ -78,3 +78,4 @@ load-balancer:
         service: jiva-w
         target_port: 8080
         #source_port: 8080 #${porta_load_balancer}
+"
