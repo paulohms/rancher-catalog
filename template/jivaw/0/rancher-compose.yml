@@ -1,6 +1,6 @@
 .catalog:
   name: "Jiva-W"
-  version: "_3.19.21b21
+  version: "_3.19.21b21"
   description: "Criar um novo container utilizando o template"
   questions:
     - variable: "ip_bd"
