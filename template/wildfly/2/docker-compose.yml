@@ -22,6 +22,7 @@ jiva-w:
   ports:
     - 8080
   #mem_limit: '1536m' 
+  
 
 sas:
   image: paulohms/sas:1.0
