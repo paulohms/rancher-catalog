@@ -1,0 +1,80 @@
+.catalog:
+  name: "Jiva-W"
+  version: "3.19"
+  description: "Criar um novo container utilizando o template"
+  questions:
+    - variable: "ip_bd"
+      label: "IP do Banco de Dados"
+      description: |
+        IP no qual está instalado o Banco de Dados
+      type: "string"
+      required: true
+    - variable: "porta_bd"
+      label: "Porta do Banco de Dados"
+      description: |
+        Porta no qual está instalado o Banco de Dados
+      type: "string"
+      default: "1521"
+      required: true
+    - variable: "sid_bd"
+      label: "SID do Banco de Dados"
+      description: |
+        SID do Banco de Dados
+      type: "string"
+      default: "ORCL"
+      required: true
+    - variable: "usuario_bd"
+      label: "Usuário do Banco de Dados"
+      description: |
+        Usuário do Banco de Dados
+      type: "string"
+      required: true
+    - variable: "senha_bd"
+      label: "Senha do Banco de Dados"
+      description: |
+        Senha do Banco de Dados
+      type: "password"
+      required: true
+    - variable: "memoria_jboss"
+      label: "Memória de inicialização do Jboss"
+      description: |
+        Memória de inicialização do Jboss
+      type: enum
+      options:
+        - -Xms512m -Xmx512m
+        - -Xms1024m -Xmx1024m
+      required: true
+jiva-w:
+  scale: 1
+  #health_check:
+  #    port: 8080
+  #    request_line: GET / HTTP/1.0
+  #    interval: 200000
+  #    initializing_timeout: 300000
+  #    reinitializing_timeout: 300000
+  #    unhealthy_threshold: 3
+  #    strategy: recreate
+  #    healthy_threshold: 1
+  #    response_timeout: 60000
+sas:
+  scale: 1
+  health_check:
+      response_timeout: 60000
+      healthy_threshold: 1
+      port: 10050
+      unhealthy_threshold: 2
+      initializing_timeout: 60000
+      interval: 60000
+      strategy: recreate
+      reinitializing_timeout: 60000
+#load-balancer:
+#    scale: 1
+#    lb_config:
+#      port_rules:
+#      - hostname: ''
+#        path: ''
+#        priority: 1
+#        protocol: http
+#        service: jiva-w
+#        target_port: 8080
+#        #source_port: 8080 #${porta_load_balancer}
