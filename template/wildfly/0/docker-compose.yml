@@ -18,7 +18,7 @@ jiva-w:
     - /home/mgeweb/dados-dos-clientes/{{ .Stack.Name }}/logs/:/home/mgeweb/wildfly_producao/standalone/log # logs do JBOSS
     - /home/mgeweb/dados-dos-clientes/{{ .Stack.Name }}/SanNFe/:/home/mgeweb/SanNFe # Certificados do SanNFe
     - /home/mgeweb/sankhyaw-wpm/pkgs/:/home/mgeweb/sankhyaw-wpm/pkgs # Pkgs Jiva-W
-  command: ["/bin/sh","-c", "sed -i 's/-Xms1024M -Xmx1024M/${memoria_jboss}/g' /home/mgeweb/wildfly_producao/bin/standalone.conf && java -jar /home/mgeweb/DPM/docker-package-manager.jar && sudo tar -zxf /tmp/SanNFe.tar.gz -C /home/mgeweb/ && sudo rm -rf /home/mgeweb/SanNFe/console /home/mgeweb/SanNFe/jre /home/mgeweb/SanNFe/lib /home/mgeweb/SanNFe/log /home/mgeweb/SanNFe/sannfe.jar /home/mgeweb/SanNFe/sannfe-console /home/mgeweb/SanNFe/sannfe-service /home/mgeweb/SanNFe/sanNFe-win && sudo chown -R mgeweb:mgeweb /home/mgeweb/SanNFe /home/mgeweb/sankhyaw-wpm/ /home/mgeweb/wildfly_producao/standalone/log/ && sleep 2 && /home/mgeweb/wildfly_producao/bin/./standalone.sh -Djape.lazy.init=true -Djape.lob.fields.as.lazy=true -Djape.ignore.ligacao.inconsistente=true"]
+  command: ["/bin/sh","-c", "sed -i 's/-Xms1024M -Xmx1024M/${memoria_jboss}/g' /home/mgeweb/wildfly_producao/bin/standalone.conf && java -jar /home/mgeweb/DPM/docker-package-manager.jar && sudo /home/mgeweb/./sannfe.sh && sudo chown -R mgeweb:mgeweb /home/mgeweb/SanNFe /home/mgeweb/sankhyaw-wpm/ /home/mgeweb/wildfly_producao/standalone/log/ && sleep 2 && /home/mgeweb/wildfly_producao/bin/./standalone.sh -Djape.lazy.init=true -Djape.lob.fields.as.lazy=true -Djape.ignore.ligacao.inconsistente=true"]
   ports:
     - 8080
   #mem_limit: '1536m' 
