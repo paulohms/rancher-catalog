@@ -7,7 +7,7 @@ jiva-w:
     - SID_BD_JIVAW=${sid_bd}
     - USUARIO_BD_JIVAW=${usuario_bd}
     - SENHA_BD_JIVAW=${senha_bd}
-    - PACOTE_JIVAW=jiva-w_1104772-trunkb125079.pkg
+    - PACOTE_JIVAW=jiva-w_1104772-trunkb125098.pkg
     - TIPO_SERVIDOR=WILDFLY
     - TIPO_BD=Oracle
   links:
