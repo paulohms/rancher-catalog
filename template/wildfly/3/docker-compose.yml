@@ -35,6 +35,7 @@ sas:
     - IP_CONTAINER=${agent_ip}
   command: ["/bin/sh","-c", "java -jar /opt/DSM/docker-sas-manager.jar && sleep 2 & /opt/SAS*/bin/./run-sas.sh && sleep 2 && tail -f /opt/SAS*/log/server*.log"]
 
+{{- if eq .Values.TESTE "true" }}
 sas22:
   image: paulohms/sas:1.0
   restart: always
@@ -46,5 +47,5 @@ sas22:
     - SENHA_BD_JIVAW=${senha_bd}
     - IP_CONTAINER=${agent_ip}
   command: ["/bin/sh","-c", "java -jar /opt/DSM/docker-sas-manager.jar && sleep 2 & /opt/SAS*/bin/./run-sas.sh && sleep 2 && tail -f /opt/SAS*/log/server*.log"]
-  
+{{- end }}  
   
