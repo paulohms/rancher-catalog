@@ -74,3 +74,19 @@ sas:
       interval: 60000
       strategy: recreate
       reinitializing_timeout: 60000
+
+sas22:
+  {{- if eq .Values.TESTE "true" }}
+  scale: 1
+  {{- else }}
+  scale: 0
+  {{- end }}
+  health_check:
+      response_timeout: 60000
+      healthy_threshold: 1
+      port: 10050
+      unhealthy_threshold: 2
+      initializing_timeout: 60000
+      interval: 60000
+      strategy: recreate
+      reinitializing_timeout: 60000
