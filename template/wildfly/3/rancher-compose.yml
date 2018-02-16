@@ -44,7 +44,7 @@
         - -Xms512m -Xmx512m
         - -Xms1024m -Xmx1024m
       required: true
-    - variable: TESTE
+    - variable: TESTE"
       label: "Subir o SAS 2?"
       description: |
         Subir o segundo sas
@@ -74,3 +74,8 @@ sas:
       interval: 60000
       strategy: recreate
       reinitializing_timeout: 60000
+
+{{- if eq .Values.TESTE "true" }}
+teste:
+  scale: 1
+{{- end }}  
