@@ -47,8 +47,7 @@ catalog:
       required: true
     - variable: TESTE"
       label: "Subir o SAS 2?"
-      description: |
-        Subir o segundo sas
+      description: Subir o segundo sas
       type: boolean
       default: true
       required: true
