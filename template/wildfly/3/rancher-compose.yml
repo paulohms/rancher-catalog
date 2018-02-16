@@ -76,4 +76,4 @@ sas:
       reinitializing_timeout: 60000
 
 teste:
-  scale: 1
+  scale: 0
