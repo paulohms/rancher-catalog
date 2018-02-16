@@ -1,4 +1,5 @@
-.catalog:
+version: '2'
+catalog:
   name: "Jiva-W"
   version: "Teste nao usar"
   description: "Criar um novo container utilizando o template"
@@ -51,29 +52,30 @@
       type: boolean
       default: true
       required: true
-jiva-w:
-  scale: 1
-  #health_check:
-  #    port: 8080
-  #    request_line: GET / HTTP/1.0
-  #    interval: 200000
-  #    initializing_timeout: 300000
-  #    reinitializing_timeout: 300000
-  #    unhealthy_threshold: 3
-  #    strategy: recreate
-  #    healthy_threshold: 1
-  #    response_timeout: 60000
-sas:
-  scale: 1
-  health_check:
-      response_timeout: 60000
-      healthy_threshold: 1
-      port: 10050
-      unhealthy_threshold: 2
-      initializing_timeout: 60000
-      interval: 60000
-      strategy: recreate
-      reinitializing_timeout: 60000
+services:
+  jiva-w:
+    scale: 1
+    #health_check:
+    #    port: 8080
+    #    request_line: GET / HTTP/1.0
+    #    interval: 200000
+    #    initializing_timeout: 300000
+    #    reinitializing_timeout: 300000
+    #    unhealthy_threshold: 3
+    #    strategy: recreate
+    #    healthy_threshold: 1
+    #    response_timeout: 60000
+  sas:
+    scale: 1
+    health_check:
+        response_timeout: 60000
+        healthy_threshold: 1
+        port: 10050
+        unhealthy_threshold: 2
+        initializing_timeout: 60000
+        interval: 60000
+        strategy: recreate
+        reinitializing_timeout: 60000
 
-teste:
-  scale: 1
+  teste:
+    scale: 1
