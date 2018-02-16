@@ -39,5 +39,5 @@ services:
   datasync:
     image: jivagestaoempresarial/datasync:1.0
     restart: always
-    command: ["/bin/sh","-c", "java -jar /home/mgeweb/docker-datasync-manager.jar && tar -zxf /tmp/Datasync.tar.gz -C /home/mgeweb/ && /home/mgeweb/DataSync/./datasync-service && sleep 2 && tail -f /home/mgeweb/DataSync/log/server.log"]
+    command: ["/bin/sh","-c", "java -jar /home/mgeweb/docker-datasync-manager.jar && tar -zxf /tmp/Datasync.tar.gz -C /home/mgeweb/ && /home/mgeweb/DataSync/./datasync-service start&& sleep 2 && tail -f /home/mgeweb/DataSync/log/server.log"]
   {{- end}}
