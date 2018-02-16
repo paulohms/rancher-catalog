@@ -35,9 +35,4 @@ services:
       - SENHA_BD_JIVAW=${senha_bd}
       - IP_CONTAINER=${agent_ip}
     command: ["/bin/sh","-c", "java -jar /opt/DSM/docker-sas-manager.jar && sleep 2 & /opt/SAS*/bin/./run-sas.sh && sleep 2 && tail -f /opt/SAS*/log/server*.log"]
-  {{- if eq .Values.TESTE "true" }}
-  teste:
-    image: nginx
-    restart: always
-  {{- end }}  
   
