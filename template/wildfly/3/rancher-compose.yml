@@ -74,6 +74,3 @@ sas:
       interval: 60000
       strategy: recreate
       reinitializing_timeout: 60000
-
-teste:
-  scale: 1
