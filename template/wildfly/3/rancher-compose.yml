@@ -45,8 +45,8 @@ catalog:
         - -Xms512m -Xmx512m
         - -Xms1024m -Xmx1024m
       required: true
-    - variable: TESTE
-      label: "Subir o SAS 2?"
+    - variable: DATA_SYNC
+      label: "Subir o Data Sync?"
       description: Subir o segundo sas
       type: boolean
       default: true
