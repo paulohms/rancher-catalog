@@ -37,7 +37,7 @@ services:
     command: ["/bin/sh","-c", "java -jar /opt/DSM/docker-sas-manager.jar && sleep 2 & /opt/SAS*/bin/./run-sas.sh && sleep 2 && tail -f /opt/SAS*/log/server*.log"]
   {{- if eq .Values.DATA_SYNC "true"}}
   datasync:
-    image: jivagestaoempresarial/jivaw:1.0
+    image: jivagestaoempresarial/datasync:1.0
     restart: always
     command: ["/bin/sh","-c", "java -jar /home/mgeweb/docker-datasync-manager.jar && tar -zxf /tmp/Datasync.tar.gz -C /home/mgeweb/ && /home/mgeweb/DataSync/./datasync-service && sleep 2 && tail -f /home/mgeweb/DataSync/log/server.log"]
   {{- end}}
