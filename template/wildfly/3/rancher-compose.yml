@@ -75,7 +75,5 @@ sas:
       strategy: recreate
       reinitializing_timeout: 60000
 
-{{- if eq .Values.TESTE "true" }}
 teste:
   scale: 1
-{{- end }}  
