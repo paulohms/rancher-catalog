@@ -36,16 +36,8 @@ sas:
   command: ["/bin/sh","-c", "java -jar /opt/DSM/docker-sas-manager.jar && sleep 2 & /opt/SAS*/bin/./run-sas.sh && sleep 2 && tail -f /opt/SAS*/log/server*.log"]
 
 {{- if eq .Values.TESTE "true" }}
-sas22:
-  image: paulohms/sas:1.0
+teste:
+  image: nginx
   restart: always
-  environment:
-    - IP_BD_JIVAW=${ip_bd}
-    - PORTA_BD_JIVAW=${porta_bd}
-    - SID_BD_JIVAW=${sid_bd}
-    - USUARIO_BD_JIVAW=${usuario_bd}
-    - SENHA_BD_JIVAW=${senha_bd}
-    - IP_CONTAINER=${agent_ip}
-  command: ["/bin/sh","-c", "java -jar /opt/DSM/docker-sas-manager.jar && sleep 2 & /opt/SAS*/bin/./run-sas.sh && sleep 2 && tail -f /opt/SAS*/log/server*.log"]
 {{- end }}  
   
