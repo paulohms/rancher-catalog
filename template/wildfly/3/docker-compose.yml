@@ -39,5 +39,15 @@ services:
   datasync:
     image: jivagestaoempresarial/datasync:1.0
     restart: always
-    command: ["/bin/sh","-c", "java -jar /home/mgeweb/docker-datasync-manager.jar && tar -zxf /tmp/Datasync.tar.gz -C /home/mgeweb/ && /home/mgeweb/DataSync/./datasync-service start&& sleep 2 && tail -f /home/mgeweb/DataSync/log/server.log"]
+    volumes: 
+      - /home/mgeweb/dados-dos-clientes/{{ .Stack.Name }}/datasync/conf:/home/mgeweb/DataSync/conf
+      - /home/mgeweb/dados-dos-clientes/{{ .Stack.Name }}/datasync/email:/home/mgeweb/DataSync/email
+      - /home/mgeweb/dados-dos-clientes/{{ .Stack.Name }}/datasync/exported:/home/mgeweb/DataSync/exported
+      - /home/mgeweb/dados-dos-clientes/{{ .Stack.Name }}/datasync/filetransfer_home:/home/mgeweb/DataSync/filetransfer_home
+      - /home/mgeweb/dados-dos-clientes/{{ .Stack.Name }}/datasync/log:/home/mgeweb/DataSync/log
+      - /home/mgeweb/dados-dos-clientes/{{ .Stack.Name }}/datasync/processed:/home/mgeweb/DataSync/processed
+      - /home/mgeweb/dados-dos-clientes/{{ .Stack.Name }}/datasync/sync:/home/mgeweb/DataSync/sync
+      - /home/mgeweb/dados-dos-clientes/{{ .Stack.Name }}/datasync/tracking:/home/mgeweb/DataSync/tracking
+      - /home/mgeweb/dados-dos-clientes/{{ .Stack.Name }}/datasync/work:/home/mgeweb/DataSync/work
+    command: ["/bin/sh","-c", "java -jar /home/mgeweb/docker-datasync-manager.jar && /home/mgeweb/./run-datasync.sh && /home/mgeweb/DataSync/./datasync-service start && sleep 3 && tail -f /home/mgeweb/DataSync/log/server.log"]
   {{- end}}
