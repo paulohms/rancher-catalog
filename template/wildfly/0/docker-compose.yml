@@ -10,6 +10,7 @@ jiva-w:
     - PACOTE_JIVAW=${pacote_jivaw}
     - TIPO_SERVIDOR=WILDFLY
     - TIPO_BD=Oracle
+    - CLIENTID={{ .ID }}
   links:
     - sas
   volumes: 
